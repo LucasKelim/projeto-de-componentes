@@ -7,5 +7,9 @@ class Pagamento(ABC):
         pass
 
     @abstractmethod
+    def getNome(self) -> str:
+        pass
+
+    @abstractmethod
     def getDescricao(self) -> str:
         pass

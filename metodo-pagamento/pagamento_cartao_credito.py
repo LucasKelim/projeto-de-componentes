@@ -16,10 +16,15 @@ class PagamentoCartaoCredito(Pagamento):
         return random.choice([True, False])
     
     def valorParcela(self) -> float:
-        valorParcela = self.__valorTotal / self.__parcelas
-        return valorParcela
+        return self.__valorTotal / self.__parcelas
     
-    def getDescricao(self):
+    def getNome(self):
         return "Cartão de Crédito"
 
-    
+    def getDescricao(self):
+        return f"""
+            Pagamento via {self.getNome()}
+            Preço Total: R$ {self.__valorTotal:.2f}
+            Parcelas: {self.__parcelas}
+            Preço da Parcela: R$ {self.valorParcela():.2f}
+        """
